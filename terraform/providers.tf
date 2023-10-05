@@ -21,7 +21,6 @@ terraform {
   }
 }
 
-provider "google" {
-  project = var.gcp_project_id
-  region  = var.region
+provider "kubernetes" {
+  host = "https://127.0.0.1:52718"
 }
