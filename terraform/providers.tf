@@ -34,5 +34,6 @@ terraform {
   required_version = ">= 1.1.0"
 }
 provider "kubernetes" {
+  config_path = "~/.kube/config"
   host = "https://127.0.0.1:52718"
 }
