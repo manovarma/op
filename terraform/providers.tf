@@ -13,14 +13,26 @@
 # limitations under the License.
 
 terraform {
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "4.81.0"
+    required_providers {
+    datadog = {
+      source  = "datadog/datadog"
+      version = "~> 3.20.0"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~> 2.8.0"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~> 2.16.1"
+    }
+    tfe = {
+      source = "hashicorp/tfe"
+      version = "~> 0.42.0"
     }
   }
+  required_version = ">= 1.1.0"
 }
-
 provider "kubernetes" {
   host = "https://127.0.0.1:52718"
 }
