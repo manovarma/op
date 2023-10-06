@@ -21,10 +21,6 @@ resource "null_resource" "apply_deployment" {
     interpreter = ["bash", "-exc"]
     command     = "kubectl apply -k ${var.filepath_manifest} -n ${var.namespace}"
   }
-
-  depends_on = [
-    module.gcloud
-  ]
 }
 
 # Wait condition for all Pods to be ready before finishing
