@@ -16,18 +16,13 @@
 resource "google_redis_instance" "redis-cart" {
   name           = "redis-cart"
   memory_size_gb = 1
-  region         = var.region
 
   # count specifies the number of instances to create;
   # if var.memorystore is true then the resource is enabled
   count          = var.memorystore ? 1 : 0
 
   redis_version  = "REDIS_6_X"
-  project        = var.gcp_project_id
-
-  depends_on = [
-    module.enable_google_apis
-  ]
+  
 }
 
 # Edit contents of Memorystore kustomization.yaml file to target new Memorystore (redis) instance
